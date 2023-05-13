@@ -183,7 +183,7 @@ You can specify a tag, it's up to you.
 Here's a tutorial on how to build a Dockerfile on a Windows terminal. 
 Navigate to minute 4:33 and keep following the guide.
 
-> [Build a Docker image](https://www.youtube.com/watch?v=4iWwZPvIZhk)
+> [Video Tutorial on to build a Docker image](https://www.youtube.com/watch?v=4iWwZPvIZhk)
 
 ### 3.1 Push your image to DockerHub
 The next step will be pushing the image you just built to your Dockerhub address. The image will be pulled during the configuration of the RayCluster, so that's why it has to be publicly available. 
@@ -207,7 +207,7 @@ $docker push <target-image>[:<target-tag>]
 
 ```
 
-Here's a tutorial on how to push a docker image to your Dockerhub profile.  
+Here's a video tutorial on how to push a docker image to your Dockerhub profile.  
 
 > [Push your Docker image to Dockerhub](https://www.youtube.com/watch?v=pCq-ZYK-jYs)
 ----
@@ -217,7 +217,7 @@ Here's a tutorial on how to push a docker image to your Dockerhub profile.
 You wil need to create an App registration for your Ray Cluster, using the Microsoft identity platform by registering it in your Azure Portal. Because you need an trust relationship between your application and the client's web API, using the Microsoft identity platform performs identity and access management (IAM) will allow you to do so.  The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around. Once created, the application object cannot be moved between different tenants.
 
 > Here's a video tutorial on how to create an App Registration on your Azure Portal from YouTube.
-> [Tutorial](https://www.youtube.com/watch?v=Oh90VbMrOVk)
+> [Video Tutorial](https://www.youtube.com/watch?v=Oh90VbMrOVk)
 
 If you prefer following a visual tutorial, keep following the guide below. 
 
