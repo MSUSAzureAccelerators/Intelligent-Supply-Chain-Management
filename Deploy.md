@@ -12,8 +12,6 @@ Both options will help you deploying the following resources:
 
 ## Deploy the architecture through Azure Portal by using pre-configured Azure Deployment
 
-
-## GG
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fgallogiulia%2FMSUS_SC_Accelerator%2Fmain%2Fdeployment%2Fazuredeploy.json)
 
 
