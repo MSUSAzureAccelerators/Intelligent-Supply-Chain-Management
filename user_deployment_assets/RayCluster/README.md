@@ -180,9 +180,10 @@ $docker build <path-to-dockerfile>
 ```
 You can specify a tag, it's up to you.
 
-Here's a tutorial on how to build a Dockerfile on a Windows terminal and how you can push it to your Dockerhub account. 
+Here's a tutorial on how to build a Dockerfile on a Windows terminal. 
+Navigate to minute 4:33 and keep following the guide.
 
-> [Build and Push Docker image](https://www.youtube.com/watch?v=4iWwZPvIZhk)
+> [Build a Docker image](https://www.youtube.com/watch?v=4iWwZPvIZhk)
 
 ### 3.1 Push your image to DockerHub
 The next step will be pushing the image you just built to your Dockerhub address. The image will be pulled during the configuration of the RayCluster, so that's why it has to be publicly available. 
@@ -206,6 +207,9 @@ $docker push <target-image>[:<target-tag>]
 
 ```
 
+Here's a tutorial on how to push a docker image to your Dockerhub profile.  
+
+> [Push your Docker image to Dockerhub]([https://www.youtube.com/watch?v=4iWwZPvIZhk](https://www.youtube.com/watch?v=pCq-ZYK-jYs))
 ----
 
 ## Phase 4. Create and App Registration on your Azure Portal, to allow the Ray pods to read the AKV secrets.
