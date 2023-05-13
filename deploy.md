@@ -3,7 +3,7 @@
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmsmarti%2Fsa-optimization-deploy%2Fmain%2Fdeployment%2Fazuredeploy.json)
 
 ## GG
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmsmarti%2Fsa-optimization-deploy%2Fmain%2Fdeployment%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fgallogiulia%2FMSUS_SC_Accelerator%2Fmain%2Fdeployment%2Fazuredeploy.json%3Ftoken%3DGHSAT0AAAAAACAICM4W2H3JKP3US2UVBTFGZC7XCRA)
 
 
 ### AML workspace
