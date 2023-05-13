@@ -25,7 +25,7 @@ var name = toLower('${prefix}')
 var uniqueSuffix = substring(uniqueString(resourceGroup().id), 0, 4)
 
 @description('Kubernetes version of the Azure Kubernetes Service cluster')
-param kubernetesVersion string = '1.24.9' // https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions
+param kubernetesVersion string = '1.24.6' // https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions
 
 // Dependent resources for the Azure Machine Learning workspace
 module keyvault 'resources/keyvault.bicep' = {
