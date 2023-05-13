@@ -16,4 +16,5 @@ This screenshot below shows you the resources that will be deployed by the Azure
 
 The next steps you will have to take consist of setting up the Azure Resources that have been deployed into your subscription. Refer to the guide [here](user_deployment_assets/README.md).
 
-Clone this repository on your local machine, so you can access it during the later stages.
+>  **Note**
+>  Clone this repository on your local machine, so you can access it during the later stages.
