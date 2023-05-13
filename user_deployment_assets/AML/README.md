@@ -11,6 +11,7 @@ In this guide, you will perform the following actions:
 
 The conda virtual environment that we are going to create and register in Azure Machine Learning contains the same python libraries that are used to run the score.py file on your local machine, in Jupyter, Visual Studio Code or wherever you run and test your code. The virtual environment is necessary for the AKS pod to run the containerized version of your simulation code and not fail. 
 
+CREATE VIDEO 
 Go on your Azure Compute Instance or your local machine, and run the [1.RegisterAMLEnvironment.ipynb](Deploy\AML\1.RegisterAMLEnvironment.ipynb) notebook.
 
 Once the process is completed, you should see the newly registered conda environment in your AML studio:
@@ -21,9 +22,11 @@ Once the process is completed, you should see the newly registered conda environ
 
 The last step is for you to run the [2.AKS_Deployment_Notebook.ipynb](Deploy\AML\AKS_Deployment_Notebook.ipynb) notebook. Once you are done running the last cell of the notebook, you will see something similar to these messages below on your terminal. The Keywords to look for are "Ready" and "Healthy". 
 
+VIDEO
+
 ![](../../assets/images/DeploymentSuccess.png)
 
-
+VIDEO
 You can also follow the deployment process and check the status of your online endpoint from the Azure Portal.
 
 ![](../../assets/images/endpoint.png)
@@ -31,4 +34,6 @@ You can also follow the deployment process and check the status of your online e
 Click on the name of your online endpoint to see the details about the deployment
 
 ![](../../assets/images/AMLHealthy.png)
+
+Next, you are going to setup your Power App to connect to your Ray Cluster and your Azure Resources. Follow the guide [here](../PowerApp/README.md)
 
