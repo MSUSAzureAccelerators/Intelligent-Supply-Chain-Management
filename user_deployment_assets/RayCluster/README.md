@@ -80,14 +80,7 @@ AZURE_RESOURCE_GROUP
 In this phase, you will build a Docker file image to be installed on your Ray Cluster in the subsequent phases. Docker is a tool that helps you build, test, ship and run applications
 seamlessly across various machines. It replicates the environment our software needs on any machine. 
 
-### Phase 3.1 Install Docker Deskotp
-
-You can get Docker for your machine from https://docs.docker.com/get-docker/. 
-
-![](../../assets/images/Docker.png)
-
-
-### Phase 3.2 Sign-up for a Dockerhub account
+### Phase 3.1 Sign-up for a Dockerhub account
 
 After installing Docker, you will have to sign up for an account on [Dockerhub](https://hub.docker.com/signup) in order to be able to push and pull your Docker images for your deployments.
 
