@@ -54,6 +54,7 @@ Here's a list of software and code repository you will need to have installed on
 
 4) **Python v3.10.9** [Python homepage](https://www.python.org/downloads/)
 
+
 > Installation Videos:
 > - [Windows Guide](https://www.youtube.com/watch?v=sSzanMUE6hU)
 > - [Mac OS Guide](https://www.youtube.com/watch?v=r6bBaj797t8)
