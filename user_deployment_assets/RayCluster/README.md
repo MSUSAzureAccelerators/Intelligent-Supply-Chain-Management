@@ -216,6 +216,10 @@ Here's a tutorial on how to push a docker image to your Dockerhub profile.
 
 You wil need to create an App registration for your Ray Cluster, using the Microsoft identity platform by registering it in your Azure Portal. Because you need an trust relationship between your application and the client's web API, using the Microsoft identity platform performs identity and access management (IAM) will allow you to do so.  The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around. Once created, the application object cannot be moved between different tenants.
 
+> Here's a generic tutorial on how to create an App Registration on your Azure Portal from YouTube.
+> [Tutorial](https://www.youtube.com/watch?v=Oh90VbMrOVk)
+
+
 ![](../../assets/images/portal-02-app-reg-01.png)
 
 
