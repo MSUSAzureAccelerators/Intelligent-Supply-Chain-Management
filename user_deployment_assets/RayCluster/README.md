@@ -209,7 +209,7 @@ $docker push <target-image>[:<target-tag>]
 
 Here's a tutorial on how to push a docker image to your Dockerhub profile.  
 
-> [Push your Docker image to Dockerhub]([https://www.youtube.com/watch?v=4iWwZPvIZhk](https://www.youtube.com/watch?v=pCq-ZYK-jYs))
+> [Push your Docker image to Dockerhub](https://www.youtube.com/watch?v=pCq-ZYK-jYs)
 ----
 
 ## Phase 4. Create and App Registration on your Azure Portal, to allow the Ray pods to read the AKV secrets.
