@@ -42,7 +42,7 @@ Here's a list of software and code repository you will need to have installed on
 
 > Installation Videos:
 > - [Windows 10 and 11 Guide](https://www.youtube.com/watch?v=G9MmLUsBd3g)
-> - [Mac OS Guide](https://www.youtube.com/watch?v=fXE1Gu71XNM)
+> - [Mac OS Guide](https://www.youtube.com/watch?v=5nX8U8Fz5S0)
 
 
 3) **Azure CLI** [Docker Desktop homepage](https://docs.docker.com/desktop/)
