@@ -219,6 +219,7 @@ You wil need to create an App registration for your Ray Cluster, using the Micro
 > Here's a generic tutorial on how to create an App Registration on your Azure Portal from YouTube.
 > [Tutorial](https://www.youtube.com/watch?v=Oh90VbMrOVk)
 
+If you prefer following a visual tutorial, keep following the guide below. 
 
 ![](../../assets/images/portal-02-app-reg-01.png)
 
@@ -248,6 +249,12 @@ Your application's code, or more typically an authentication library used in you
 ### Phase 4.1 Add the client secret for the Azure KeyVault and the Azure Kubernetes Instance
 
 Sometimes called an _application password_, a client secret is a string value your app can use in place of a certificate to identity itself. Client secrets are considered less secure than certificate credentials. Application developers sometimes use client secrets during local app development because of their ease of use. However, you should use certificate credentials for any of your applications that are running in production.
+
+In this YouTube tutorial, you can see how to create a client secret in the App you just created in the step above. You will need to create *two* secrets, one for Azure KeyVault and one for your Azure Kubernetes Instance. 
+
+> Check the YouTube tutorial [here].(https://www.youtube.com/watch?v=y-iaOb0K14c)
+
+Here's the instructions step by step, in case the video didn't work.
 
 1. In the Azure portal, in **App registrations**, select your application. 
 
