@@ -41,8 +41,8 @@ Here's a list of software and code repository you will need to have installed on
 2) **Docker Desktop** [Docker Desktop homepage](https://docs.docker.com/desktop/)
 
 > Installation Videos:
-> - [Windows 10 and 11 Guide](https://www.youtube.com/watch?v=G9MmLUsBd3g)
-> - [Mac OS Guide](https://www.youtube.com/watch?v=5nX8U8Fz5S0)
+> - [Windows 10 Guide](https://www.youtube.com/watch?v=5nX8U8Fz5S0)
+> - [Mac OS Guide](https://www.youtube.com/watch?v=SGmFGYCuJK4&t=37s)
 
 
 3) **Azure CLI** [Docker Desktop homepage](https://docs.docker.com/desktop/)
