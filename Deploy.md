@@ -1,15 +1,3 @@
-# Solution Deployment
-Organizations have different policies and processes in place which lead them to opt for a manual or automated deployment strategy.
-We provide 2 different options to deploy the architecture and resources needed to run the solution.
-
-Both options will help you deploying the following resources:
-- Azure Key Vault
-- Azure Storage (Standard LRS)
-- Azure Container Registry
-- Azure Application Insights
-- Azure Machine Learning (with Azure Kubernetes Services Inferred Compute Instance - Default: Standard_F8s_v2)
-- Azure SQL Database (with random credentials)
-
 ## Deploy the architecture through Azure Portal by using pre-configured Azure Deployment
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fgallogiulia%2FMSUS_SC_Accelerator%2Fmain%2Fdeployment%2Fazuredeploy.json)
