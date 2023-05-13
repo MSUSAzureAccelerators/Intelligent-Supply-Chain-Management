@@ -84,7 +84,7 @@ seamlessly across various machines. It replicates the environment our software n
 
 After installing Docker, you will have to sign up for an account on [Dockerhub](https://hub.docker.com/signup) in order to be able to push and pull your Docker images for your deployments.
 
-![](../../assets/images/DockerAccount.png)
+> Check this guide on how to sign up for a Dockerhub account. [YouTube Link](https://www.youtube.com/watch?v=X5ZHEdvZPbo)
 
 More commands can be found at https://docs.docker.com/engine/reference/commandline/docker/
 
