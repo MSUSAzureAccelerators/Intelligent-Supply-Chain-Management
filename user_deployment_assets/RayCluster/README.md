@@ -29,9 +29,14 @@ For more general information and other deployment scenarios, please visit this [
 
 ## Phase 1: Check the Software Prerequisites
 
-Here's a list of software and code repository you will need to have installed on your local machine.
+Here's a list of software and code repository you will need to have installed on your local machine. 
 
-- Kubectl v4.5.4 or above [kubectl](https://kubernetes.io/docs/tasks/tools/) 
+- Kubectl v4.5.4 or above [kubectl](https://kubernetes.io/docs/tasks/tools/).
+
+> Installation Videos:
+> [Windows 10 Guide](https://www.youtube.com/watch?v=G9MmLUsBd3g)
+> [Mac OS Guide]([https://www.youtube.com/watch?v=G9MmLUsBd3g](https://www.youtube.com/watch?v=fXE1Gu71XNM))
+
 - [Docker Desktop](https://docs.docker.com/desktop/)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 - [Python - v3.10.9](https://www.python.org/downloads/)
