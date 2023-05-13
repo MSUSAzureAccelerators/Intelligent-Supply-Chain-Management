@@ -58,7 +58,7 @@ Full details for the tables are provided here.
 | Table Name | Variable Name | Data Type |
 | ----------- | ------------ | ----------|
 | sc_results_table_full | id int IDENTITY(1,1) | PRIMARY KEY|
-   | Item | varchar(255)|
+|| Item | varchar(255)|
 |                | Class | varchar(255)|
 |               
 |                | Location |  varchar(255)|
