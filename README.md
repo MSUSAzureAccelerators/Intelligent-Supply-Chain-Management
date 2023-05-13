@@ -6,12 +6,34 @@ Created to provide a customer interface by using Power BI and PowerApps from whi
 
 The Supply Chain Management Solution Accelerator helps inventory managers to analyze their products portfolio, inventory systems quickly and proactively, using a practical, scalable, and manageable solution.
 
+By leveraging the capabilities of the Supply Chain Management Solution Accelerator, businesses and supply chain managers can overcome these challenges and drive operational excellence, improved customer satisfaction, and increased profitability.
+
 # Challenges
 
-- List a few challenges
+Many businesses face significant challenges when their supply chain management systems do not leverage data science and machine learning. These challenges include:
+
+- Inaccurate demand forecasting leading to overstocking or stockouts.
+- Inefficient inventory management resulting in increased carrying costs and capital tied up in excess stock.
+- Poor visibility into supply chain operations, hindering timely decision-making.
+- Inability to adapt to changing market dynamics and customer demands.
+- Inefficient production planning and scheduling, leading to production delays and increased costs.
+- Lack of real-time insights into supplier performance, affecting supplier relationship management.
+- Ineffective risk management, making businesses vulnerable to disruptions and supply chain bottlenecks.
+
 
 # Benefits
-- List
+
+The Supply Chain Management Solution Accelerator is a powerful tool that addresses these challenges by utilizing machine learning, distributed computing, and deep learning forecasts to transform data. It leverages the capabilities of the Ray.io framework to enable users to:
+
+- More accurately predict demand and optimize inventory management policies.
+- Run numerous distributed simulations to evaluate different scenarios and make informed decisions.
+- Gain actionable insights into supply chain operations and performance.
+- Enhance production planning and scheduling for improved efficiency.
+- Identify and mitigate supply chain risks proactively.
+- Optimize supplier selection and performance management.
+- Improve overall supply chain visibility and responsiveness.
+
+
 
 ## Prerequisites
 To use this solution accelerator, you will need access to an [Azure subscription](https://azure.microsoft.com/en-us/free/), a Power Apps and a Power BI license. While not required, a prior understanding of Azure Machine Learning, Azure Kubernetes, Azure SQL Database, Docker, Time Series Forecasting, Power Apps and Power BI will be helpful.
