@@ -1,0 +1,1145 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.13.1.58284",
+      "templateHash": "1499014035185199344"
+    }
+  },
+  "parameters": {
+    "prefix": {
+      "type": "string",
+      "defaultValue": "opti1",
+      "metadata": {
+        "description": "Prefix for all resource names."
+      },
+      "maxLength": 10,
+      "minLength": 2
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Azure region used for the deployment of all resources."
+      }
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {},
+      "metadata": {
+        "description": "Set of tags to apply to all resources."
+      }
+    },
+    "amlComputePublicIp": {
+      "type": "bool",
+      "defaultValue": true,
+      "metadata": {
+        "description": "Enable public IP for Azure Machine Learning compute nodes"
+      }
+    },
+    "amlComputeDefaultVmSize": {
+      "type": "string",
+      "defaultValue": "Standard_F8s_v2",
+      "metadata": {
+        "description": "VM size for the default compute cluster"
+      }
+    },
+    "kubernetesVersion": {
+      "type": "string",
+      "defaultValue": "1.24.6",
+      "metadata": {
+        "description": "Kubernetes version of the Azure Kubernetes Service cluster"
+      }
+    }
+  },
+  "variables": {
+    "name": "[toLower(format('{0}', parameters('prefix')))]",
+    "uniqueSuffix": "[substring(uniqueString(resourceGroup().id), 0, 4)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "[format('kv-{0}-{1}-deployment', variables('name'), variables('uniqueSuffix'))]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "keyvaultName": {
+            "value": "[format('kv-{0}-{1}', variables('name'), variables('uniqueSuffix'))]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.13.1.58284",
+              "templateHash": "16183318724913618165"
+            }
+          },
+          "parameters": {
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "The Azure Region to deploy the resources into"
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags to apply to the Key Vault Instance"
+              }
+            },
+            "keyvaultName": {
+              "type": "string",
+              "metadata": {
+                "description": "The name of the Key Vault"
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.KeyVault/vaults",
+              "apiVersion": "2021-10-01",
+              "name": "[parameters('keyvaultName')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "properties": {
+                "createMode": "default",
+                "enableSoftDelete": true,
+                "enablePurgeProtection": true,
+                "enabledForDeployment": true,
+                "enabledForDiskEncryption": false,
+                "enabledForTemplateDeployment": true,
+                "enableRbacAuthorization": true,
+                "sku": {
+                  "family": "A",
+                  "name": "standard"
+                },
+                "softDeleteRetentionInDays": 7,
+                "tenantId": "[subscription().tenantId]"
+              }
+            }
+          ],
+          "outputs": {
+            "keyvaultId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.KeyVault/vaults', parameters('keyvaultName'))]"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "[format('st{0}{1}-deployment', variables('name'), variables('uniqueSuffix'))]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "storageName": {
+            "value": "[format('st{0}{1}', variables('name'), variables('uniqueSuffix'))]"
+          },
+          "storageSkuName": {
+            "value": "Standard_LRS"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.13.1.58284",
+              "templateHash": "3225405119832872617"
+            }
+          },
+          "parameters": {
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region of the deployment"
+              }
+            },
+            "tags": {
+              "type": "object",
+              "metadata": {
+                "description": "Tags to add to the resources"
+              }
+            },
+            "storageName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the storage account"
+              }
+            },
+            "storageSkuName": {
+              "type": "string",
+              "defaultValue": "Standard_LRS",
+              "metadata": {
+                "description": "Storage SKU"
+              },
+              "allowedValues": [
+                "Standard_LRS",
+                "Standard_ZRS",
+                "Standard_GRS",
+                "Standard_GZRS",
+                "Standard_RAGRS",
+                "Standard_RAGZRS",
+                "Premium_LRS",
+                "Premium_ZRS"
+              ]
+            }
+          },
+          "variables": {
+            "storageNameCleaned": "[replace(parameters('storageName'), '-', '')]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "apiVersion": "2021-09-01",
+              "name": "[variables('storageNameCleaned')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "sku": {
+                "name": "[parameters('storageSkuName')]"
+              },
+              "kind": "StorageV2",
+              "properties": {
+                "accessTier": "Hot",
+                "allowBlobPublicAccess": false,
+                "allowCrossTenantReplication": false,
+                "allowSharedKeyAccess": true,
+                "encryption": {
+                  "keySource": "Microsoft.Storage",
+                  "requireInfrastructureEncryption": false,
+                  "services": {
+                    "blob": {
+                      "enabled": true,
+                      "keyType": "Account"
+                    },
+                    "file": {
+                      "enabled": true,
+                      "keyType": "Account"
+                    },
+                    "queue": {
+                      "enabled": true,
+                      "keyType": "Service"
+                    },
+                    "table": {
+                      "enabled": true,
+                      "keyType": "Service"
+                    }
+                  }
+                },
+                "isHnsEnabled": false,
+                "isNfsV3Enabled": false,
+                "keyPolicy": {
+                  "keyExpirationPeriodInDays": 7
+                },
+                "largeFileSharesState": "Disabled",
+                "minimumTlsVersion": "TLS1_2",
+                "networkAcls": {
+                  "bypass": "AzureServices",
+                  "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": true
+              }
+            }
+          ],
+          "outputs": {
+            "storageId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageNameCleaned'))]"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "[format('cr{0}{1}-deployment', variables('name'), variables('uniqueSuffix'))]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "containerRegistryName": {
+            "value": "[format('cr{0}{1}', variables('name'), variables('uniqueSuffix'))]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.13.1.58284",
+              "templateHash": "17844538243519258449"
+            }
+          },
+          "parameters": {
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region of the deployment"
+              }
+            },
+            "tags": {
+              "type": "object",
+              "metadata": {
+                "description": "Tags to add to the resources"
+              }
+            },
+            "containerRegistryName": {
+              "type": "string",
+              "metadata": {
+                "description": "Container registry name"
+              }
+            }
+          },
+          "variables": {
+            "containerRegistryNameCleaned": "[replace(parameters('containerRegistryName'), '-', '')]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.ContainerRegistry/registries",
+              "apiVersion": "2021-09-01",
+              "name": "[variables('containerRegistryNameCleaned')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "sku": {
+                "name": "Premium"
+              },
+              "properties": {
+                "adminUserEnabled": true,
+                "dataEndpointEnabled": false,
+                "networkRuleBypassOptions": "AzureServices",
+                "networkRuleSet": {
+                  "defaultAction": "Allow"
+                },
+                "policies": {
+                  "quarantinePolicy": {
+                    "status": "disabled"
+                  },
+                  "retentionPolicy": {
+                    "status": "enabled",
+                    "days": 7
+                  },
+                  "trustPolicy": {
+                    "status": "disabled",
+                    "type": "Notary"
+                  }
+                },
+                "publicNetworkAccess": "Disabled",
+                "zoneRedundancy": "Disabled"
+              }
+            }
+          ],
+          "outputs": {
+            "containerRegistryId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.ContainerRegistry/registries', variables('containerRegistryNameCleaned'))]"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "[format('appi-{0}-{1}-deployment', variables('name'), variables('uniqueSuffix'))]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "applicationInsightsName": {
+            "value": "[format('appi-{0}-{1}', variables('name'), variables('uniqueSuffix'))]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.13.1.58284",
+              "templateHash": "11589270781716720586"
+            }
+          },
+          "parameters": {
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Azure region of the deployment"
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags to add to the resources"
+              }
+            },
+            "applicationInsightsName": {
+              "type": "string",
+              "metadata": {
+                "description": "Application Insights resource name"
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Insights/components",
+              "apiVersion": "2020-02-02",
+              "name": "[parameters('applicationInsightsName')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "kind": "web",
+              "properties": {
+                "Application_Type": "web",
+                "DisableIpMasking": false,
+                "DisableLocalAuth": false,
+                "Flow_Type": "Bluefield",
+                "ForceCustomerStorageForProfiler": false,
+                "ImmediatePurgeDataOn30Days": true,
+                "IngestionMode": "ApplicationInsights",
+                "publicNetworkAccessForIngestion": "Enabled",
+                "Request_Source": "rest"
+              }
+            }
+          ],
+          "outputs": {
+            "applicationInsightsId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "[format('mlw-{0}-{1}-deployment', variables('name'), variables('uniqueSuffix'))]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "machineLearningName": {
+            "value": "[format('mlw-{0}-{1}', variables('name'), variables('uniqueSuffix'))]"
+          },
+          "machineLearningFriendlyName": {
+            "value": "Sample workspace"
+          },
+          "machineLearningDescription": {
+            "value": "This is an example workspace."
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "prefix": {
+            "value": "[variables('name')]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          },
+          "kubernetesVersion": {
+            "value": "[parameters('kubernetesVersion')]"
+          },
+          "applicationInsightsId": {
+            "value": "[reference(resourceId('Microsoft.Resources/deployments', format('appi-{0}-{1}-deployment', variables('name'), variables('uniqueSuffix'))), '2020-10-01').outputs.applicationInsightsId.value]"
+          },
+          "containerRegistryId": {
+            "value": "[reference(resourceId('Microsoft.Resources/deployments', format('cr{0}{1}-deployment', variables('name'), variables('uniqueSuffix'))), '2020-10-01').outputs.containerRegistryId.value]"
+          },
+          "keyVaultId": {
+            "value": "[reference(resourceId('Microsoft.Resources/deployments', format('kv-{0}-{1}-deployment', variables('name'), variables('uniqueSuffix'))), '2020-10-01').outputs.keyvaultId.value]"
+          },
+          "storageAccountId": {
+            "value": "[reference(resourceId('Microsoft.Resources/deployments', format('st{0}{1}-deployment', variables('name'), variables('uniqueSuffix'))), '2020-10-01').outputs.storageId.value]"
+          },
+          "amlComputePublicIp": {
+            "value": "[parameters('amlComputePublicIp')]"
+          },
+          "mlAksName": {
+            "value": "[format('aks-{0}-{1}', variables('name'), variables('uniqueSuffix'))]"
+          },
+          "vmSizeParam": {
+            "value": "[parameters('amlComputeDefaultVmSize')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.13.1.58284",
+              "templateHash": "4378858985944956055"
+            }
+          },
+          "parameters": {
+            "prefix": {
+              "type": "string",
+              "metadata": {
+                "description": "Prefix for all resource names."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region of the deployment"
+              }
+            },
+            "tags": {
+              "type": "object",
+              "metadata": {
+                "description": "Tags to add to the resources"
+              }
+            },
+            "machineLearningName": {
+              "type": "string",
+              "metadata": {
+                "description": "Machine learning workspace name"
+              }
+            },
+            "machineLearningFriendlyName": {
+              "type": "string",
+              "defaultValue": "[parameters('machineLearningName')]",
+              "metadata": {
+                "description": "Machine learning workspace display name"
+              }
+            },
+            "machineLearningDescription": {
+              "type": "string",
+              "metadata": {
+                "description": "Machine learning workspace description"
+              }
+            },
+            "mlAksName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Azure Kubernetes services resource to create and attached to the machine learning workspace"
+              }
+            },
+            "applicationInsightsId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the application insights resource"
+              }
+            },
+            "containerRegistryId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the container registry resource"
+              }
+            },
+            "keyVaultId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the key vault resource"
+              }
+            },
+            "storageAccountId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the storage account resource"
+              }
+            },
+            "amlComputePublicIp": {
+              "type": "bool",
+              "defaultValue": true,
+              "metadata": {
+                "description": "Enable public IP for Azure Machine Learning compute nodes"
+              }
+            },
+            "vmSizeParam": {
+              "type": "string",
+              "metadata": {
+                "description": "VM size for the default compute cluster"
+              }
+            },
+            "kubernetesVersion": {
+              "type": "string",
+              "metadata": {
+                "description": "Kubernetes version of the Azure Kubernetes Service cluster"
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.MachineLearningServices/workspaces",
+              "apiVersion": "2022-05-01",
+              "name": "[parameters('machineLearningName')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "identity": {
+                "type": "systemAssigned"
+              },
+              "properties": {
+                "friendlyName": "[parameters('machineLearningFriendlyName')]",
+                "description": "[parameters('machineLearningDescription')]",
+                "applicationInsights": "[parameters('applicationInsightsId')]",
+                "containerRegistry": "[parameters('containerRegistryId')]",
+                "keyVault": "[parameters('keyVaultId')]",
+                "storageAccount": "[parameters('storageAccountId')]",
+                "imageBuildCompute": "cluster001",
+                "publicNetworkAccess": "Enabled"
+              }
+            },
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2020-10-01",
+              "name": "machineLearningComputes",
+              "properties": {
+                "expressionEvaluationOptions": {
+                  "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                  "machineLearning": {
+                    "value": "[parameters('machineLearningName')]"
+                  },
+                  "location": {
+                    "value": "[parameters('location')]"
+                  },
+                  "aksName": {
+                    "value": "[parameters('mlAksName')]"
+                  },
+                  "prefix": {
+                    "value": "[parameters('prefix')]"
+                  },
+                  "tags": {
+                    "value": "[parameters('tags')]"
+                  },
+                  "amlComputePublicIp": {
+                    "value": "[parameters('amlComputePublicIp')]"
+                  },
+                  "vmSizeParam": {
+                    "value": "[parameters('vmSizeParam')]"
+                  },
+                  "kubernetesVersion": {
+                    "value": "[parameters('kubernetesVersion')]"
+                  }
+                },
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                  "contentVersion": "1.0.0.0",
+                  "metadata": {
+                    "_generator": {
+                      "name": "bicep",
+                      "version": "0.13.1.58284",
+                      "templateHash": "15675061998528807445"
+                    }
+                  },
+                  "parameters": {
+                    "prefix": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "Prefix for all resource names."
+                      }
+                    },
+                    "machineLearning": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "Azure Machine Learning workspace to create the compute resources in"
+                      }
+                    },
+                    "location": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "Azure region of the deployment"
+                      }
+                    },
+                    "tags": {
+                      "type": "object",
+                      "metadata": {
+                        "description": "Tags to add to the resources"
+                      }
+                    },
+                    "aksName": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "Name of the Azure Kubernetes services resource"
+                      }
+                    },
+                    "amlComputePublicIp": {
+                      "type": "bool",
+                      "metadata": {
+                        "description": "Resource ID of the Azure Kubernetes services resource"
+                      }
+                    },
+                    "kubernetesVersion": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "Kubernetes version of the Azure Kubernetes Service cluster"
+                      }
+                    },
+                    "vmSizeParam": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "VM size for the default compute cluster"
+                      }
+                    }
+                  },
+                  "resources": [
+                    {
+                      "type": "Microsoft.MachineLearningServices/workspaces/computes",
+                      "apiVersion": "2022-05-01",
+                      "name": "[format('{0}/cluster001', parameters('machineLearning'))]",
+                      "location": "[parameters('location')]",
+                      "tags": "[parameters('tags')]",
+                      "identity": {
+                        "type": "SystemAssigned"
+                      },
+                      "properties": {
+                        "computeType": "AmlCompute",
+                        "computeLocation": "[parameters('location')]",
+                        "description": "Machine Learning cluster 001",
+                        "disableLocalAuth": true,
+                        "properties": {
+                          "vmPriority": "Dedicated",
+                          "vmSize": "[parameters('vmSizeParam')]",
+                          "enableNodePublicIp": "[parameters('amlComputePublicIp')]",
+                          "isolatedNetwork": false,
+                          "osType": "Linux",
+                          "scaleSettings": {
+                            "minNodeCount": 0,
+                            "maxNodeCount": 5,
+                            "nodeIdleTimeBeforeScaleDown": "PT120S"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Microsoft.MachineLearningServices/workspaces/computes",
+                      "apiVersion": "2022-05-01",
+                      "name": "[format('{0}/{1}-ci001', parameters('machineLearning'), parameters('prefix'))]",
+                      "location": "[parameters('location')]",
+                      "tags": "[parameters('tags')]",
+                      "identity": {
+                        "type": "SystemAssigned"
+                      },
+                      "properties": {
+                        "computeType": "ComputeInstance",
+                        "computeLocation": "[parameters('location')]",
+                        "description": "Machine Learning compute instance 001",
+                        "properties": {
+                          "vmSize": "[parameters('vmSizeParam')]"
+                        }
+                      }
+                    },
+                    {
+                      "type": "Microsoft.Resources/deployments",
+                      "apiVersion": "2020-10-01",
+                      "name": "[parameters('aksName')]",
+                      "properties": {
+                        "expressionEvaluationOptions": {
+                          "scope": "inner"
+                        },
+                        "mode": "Incremental",
+                        "parameters": {
+                          "location": {
+                            "value": "[parameters('location')]"
+                          },
+                          "tags": {
+                            "value": "[parameters('tags')]"
+                          },
+                          "aksClusterName": {
+                            "value": "[parameters('aksName')]"
+                          },
+                          "computeName": {
+                            "value": "[parameters('aksName')]"
+                          },
+                          "workspaceName": {
+                            "value": "[parameters('machineLearning')]"
+                          },
+                          "vmSizeParam": {
+                            "value": "[parameters('vmSizeParam')]"
+                          },
+                          "kubernetesVersion": {
+                            "value": "[parameters('kubernetesVersion')]"
+                          }
+                        },
+                        "template": {
+                          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                          "contentVersion": "1.0.0.0",
+                          "metadata": {
+                            "_generator": {
+                              "name": "bicep",
+                              "version": "0.13.1.58284",
+                              "templateHash": "9385555470785238968"
+                            }
+                          },
+                          "parameters": {
+                            "kubernetesVersion": {
+                              "type": "string",
+                              "metadata": {
+                                "description": "Kubernetes version of the Azure Kubernetes Service cluster"
+                              }
+                            },
+                            "aksClusterName": {
+                              "type": "string",
+                              "metadata": {
+                                "description": "Name of the Azure Kubernetes Service cluster"
+                              }
+                            },
+                            "location": {
+                              "type": "string",
+                              "metadata": {
+                                "description": "Azure region of the deployment"
+                              }
+                            },
+                            "tags": {
+                              "type": "object",
+                              "metadata": {
+                                "description": "Tags to add to the resources"
+                              }
+                            },
+                            "workspaceName": {
+                              "type": "string",
+                              "metadata": {
+                                "description": "Name of the Azure Machine Learning workspace"
+                              }
+                            },
+                            "computeName": {
+                              "type": "string",
+                              "metadata": {
+                                "description": "Name of the Azure Machine Learning attached compute"
+                              }
+                            },
+                            "vmSizeParam": {
+                              "type": "string",
+                              "defaultValue": "Standard_F8s_v2",
+                              "metadata": {
+                                "description": "Size of the virtual machine"
+                              }
+                            }
+                          },
+                          "resources": [
+                            {
+                              "type": "Microsoft.ContainerService/managedClusters",
+                              "apiVersion": "2022-04-01",
+                              "name": "[parameters('aksClusterName')]",
+                              "location": "[parameters('location')]",
+                              "tags": "[parameters('tags')]",
+                              "identity": {
+                                "type": "SystemAssigned"
+                              },
+                              "properties": {
+                                "kubernetesVersion": "[parameters('kubernetesVersion')]",
+                                "dnsPrefix": "[format('{0}-dns', parameters('aksClusterName'))]",
+                                "agentPoolProfiles": [
+                                  {
+                                    "name": "[toLower('agentpool')]",
+                                    "count": 3,
+                                    "vmSize": "[parameters('vmSizeParam')]",
+                                    "osDiskSizeGB": 128,
+                                    "maxPods": 110,
+                                    "osType": "Linux",
+                                    "mode": "System",
+                                    "type": "VirtualMachineScaleSets"
+                                  }
+                                ],
+                                "enableRBAC": true,
+                                "networkProfile": {
+                                  "networkPlugin": "kubenet",
+                                  "serviceCidr": "10.0.0.0/16",
+                                  "dnsServiceIP": "10.0.0.10",
+                                  "dockerBridgeCidr": "172.17.0.1/16",
+                                  "loadBalancerSku": "standard"
+                                }
+                              }
+                            },
+                            {
+                              "type": "Microsoft.MachineLearningServices/workspaces/computes",
+                              "apiVersion": "2022-05-01",
+                              "name": "[format('{0}/{1}', parameters('workspaceName'), parameters('computeName'))]",
+                              "location": "[parameters('location')]",
+                              "properties": {
+                                "computeType": "AKS",
+                                "resourceId": "[resourceId('Microsoft.ContainerService/managedClusters', parameters('aksClusterName'))]"
+                              },
+                              "dependsOn": [
+                                "[resourceId('Microsoft.ContainerService/managedClusters', parameters('aksClusterName'))]"
+                              ]
+                            }
+                          ],
+                          "outputs": {
+                            "aksResourceId": {
+                              "type": "string",
+                              "value": "[resourceId('Microsoft.ContainerService/managedClusters', parameters('aksClusterName'))]"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.MachineLearningServices/workspaces', parameters('machineLearningName'))]"
+              ]
+            }
+          ],
+          "outputs": {
+            "machineLearningId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.MachineLearningServices/workspaces', parameters('machineLearningName'))]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Resources/deployments', format('appi-{0}-{1}-deployment', variables('name'), variables('uniqueSuffix')))]",
+        "[resourceId('Microsoft.Resources/deployments', format('cr{0}{1}-deployment', variables('name'), variables('uniqueSuffix')))]",
+        "[resourceId('Microsoft.Resources/deployments', format('kv-{0}-{1}-deployment', variables('name'), variables('uniqueSuffix')))]",
+        "[resourceId('Microsoft.Resources/deployments', format('st{0}{1}-deployment', variables('name'), variables('uniqueSuffix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "[format('sqlsrvsa-{0}-{1}-deployment', variables('name'), variables('uniqueSuffix'))]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "sqlServerName": {
+            "value": "[format('sql-{0}-{1}', variables('name'), variables('uniqueSuffix'))]"
+          },
+          "administratorLogin": {
+            "value": "sasqladmin"
+          },
+          "administratorLoginPassword": {
+            "value": "SA-G10rg10-!$!$"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          },
+          "sqlDBName": {
+            "value": "[format('sqldbsa-{0}-{1}', variables('name'), variables('uniqueSuffix'))]"
+          },
+          "allowAzureIPs": {
+            "value": true
+          },
+          "enableSqlDefender": {
+            "value": false
+          },
+          "connectionType": {
+            "value": "Default"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.13.1.58284",
+              "templateHash": "5585830633249406850"
+            }
+          },
+          "parameters": {
+            "sqlServerName": {
+              "type": "string",
+              "metadata": {
+                "description": "The name of the SQL logical server."
+              }
+            },
+            "sqlDBName": {
+              "type": "string",
+              "metadata": {
+                "description": "The name of the SQL Database"
+              }
+            },
+            "tags": {
+              "type": "object",
+              "metadata": {
+                "description": "Tags to add to the resources"
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Location for all resources."
+              }
+            },
+            "administratorLogin": {
+              "type": "string",
+              "metadata": {
+                "description": "The administrator username of the SQL logical server."
+              }
+            },
+            "administratorLoginPassword": {
+              "type": "secureString",
+              "metadata": {
+                "description": "The administrator password of the SQL logical server."
+              }
+            },
+            "enableSqlDefender": {
+              "type": "bool",
+              "defaultValue": false,
+              "metadata": {
+                "description": "Enable Microsoft Defender for SQL, the user deploying the template must have an administrator or owner permissions."
+              }
+            },
+            "allowAzureIPs": {
+              "type": "bool",
+              "defaultValue": true,
+              "metadata": {
+                "description": "Allow Azure services to access server."
+              }
+            },
+            "connectionType": {
+              "type": "string",
+              "defaultValue": "Default",
+              "allowedValues": [
+                "Default",
+                "Redirect",
+                "Proxy"
+              ],
+              "metadata": {
+                "description": "SQL logical server connection type."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Sql/servers",
+              "apiVersion": "2022-05-01-preview",
+              "name": "[parameters('sqlServerName')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "properties": {
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "minimalTlsVersion": "1.2"
+              }
+            },
+            {
+              "condition": "[parameters('allowAzureIPs')]",
+              "type": "Microsoft.Sql/servers/firewallRules",
+              "apiVersion": "2022-05-01-preview",
+              "name": "[format('{0}/{1}', parameters('sqlServerName'), 'AllowAllWindowsAzureIps')]",
+              "properties": {
+                "endIpAddress": "0.0.0.0",
+                "startIpAddress": "0.0.0.0"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
+              ]
+            },
+            {
+              "condition": "[parameters('enableSqlDefender')]",
+              "type": "Microsoft.Sql/servers/advancedThreatProtectionSettings",
+              "apiVersion": "2022-05-01-preview",
+              "name": "[format('{0}/{1}', parameters('sqlServerName'), 'Default')]",
+              "properties": {
+                "state": "Enabled"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
+              ]
+            },
+            {
+              "condition": "[parameters('enableSqlDefender')]",
+              "type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments",
+              "apiVersion": "2022-05-01-preview",
+              "name": "[format('{0}/{1}', parameters('sqlServerName'), 'Default')]",
+              "properties": {
+                "state": "Enabled"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
+              ]
+            },
+            {
+              "type": "Microsoft.Sql/servers/connectionPolicies",
+              "apiVersion": "2022-05-01-preview",
+              "name": "[format('{0}/{1}', parameters('sqlServerName'), 'Default')]",
+              "properties": {
+                "connectionType": "[parameters('connectionType')]"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
+              ]
+            },
+            {
+              "type": "Microsoft.Sql/servers/databases",
+              "apiVersion": "2022-05-01-preview",
+              "name": "[format('{0}/{1}', parameters('sqlServerName'), parameters('sqlDBName'))]",
+              "tags": "[parameters('tags')]",
+              "location": "[parameters('location')]",
+              "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "createMode": "Default",
+                "maxSizeBytes": 10737418240,
+                "isLedgerOn": false,
+                "licenseType": "LicenseIncluded"
+              },
+              "sku": {
+                "name": "Standard",
+                "tier": "Standard"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
+              ]
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Resources/deployments', format('mlw-{0}-{1}-deployment', variables('name'), variables('uniqueSuffix')))]"
+      ]
+    }
+  ]
+}
