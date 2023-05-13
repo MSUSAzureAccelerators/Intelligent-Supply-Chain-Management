@@ -31,11 +31,11 @@ For more general information and other deployment scenarios, please visit this [
 
 Here's a list of software and code repository you will need to have installed on your local machine. 
 
-- Kubectl v4.5.4 or above [kubectl](https://kubernetes.io/docs/tasks/tools/).
+1) *Kubectl v4.5.4 or above* [kubectl](https://kubernetes.io/docs/tasks/tools/).
 
 > Installation Videos:
-> [Windows 10 Guide](https://www.youtube.com/watch?v=G9MmLUsBd3g)
-> [Mac OS Guide]([https://www.youtube.com/watch?v=G9MmLUsBd3g](https://www.youtube.com/watch?v=fXE1Gu71XNM)
+> - [Windows 10 Guide](https://www.youtube.com/watch?v=G9MmLUsBd3g)
+> - [Mac OS Guide]([https://www.youtube.com/watch?v=G9MmLUsBd3g](https://www.youtube.com/watch?v=fXE1Gu71XNM)
 
 
 - [Docker Desktop](https://docs.docker.com/desktop/)
