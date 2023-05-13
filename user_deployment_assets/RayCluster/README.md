@@ -274,6 +274,8 @@ For application security recommendations, see [Microsoft identity platform best 
 
 ## Phase 5: Deploy the KubeRay operator on your AKS instance from your local machine
 
+CREATE VIDEO FOR THIS PHASE
+
 After deploying the necessary Azure resources, the next step is to install the KubeRay operator and the Ray Cluster on your Azure Kubernetes instance. This guide will show you how to install Ray on AKS, starting from your own local machine (laptop, desktop pc, etc.) and which tools you'll need to do so.
 
 
@@ -308,6 +310,7 @@ Finally, the last step you need to take is to install the KubeRay Operator on yo
 
 ### 5.1 Access your Azure Kubernetes instance
 
+CREATE A VIDEO FOR THIS STEP
 
 Making sure that you have installed all the prerequisite software mentioned in the guide above, open a new bash terminal and connect to your AKS cluster with the commands below.
 
@@ -323,6 +326,7 @@ Now proceed to instantiate a KubeRay Operator on your AKS instance with this com
 kubectl create -k "github.com/ray-project/kuberay/ray-operator/config/default?ref=v0.3.0&timeout=90s"
 ```
 
+CREATE VIDEO FOR THIS PHASE
 Now you will have to make two small changes to the ray-cluster.autoscaler yaml file, using your dockerhub image. This will allow your Ray cluster to run with the image and environment you built above.
 In a nutshell, both the Ray head and the workers that you are deploying will need to have the same dockerhub image/environment to connect and work properly with one another. 
 
@@ -352,7 +356,7 @@ data:
   sp-akv: COPY THE SECRET HERE
 
 ```
-
+CREATE VIDEO HERE
 
 Save and from terminal, install the service/pod with the secret. 
 ```
@@ -361,6 +365,7 @@ kubectl apply -f sp_secret.yaml
 
 To see that the Ray cluster is working correctly, you can check the Ray Dashboard on your web-browser. You will have to open the ports for the Dashboard to do so. Remember that this operation is a blocking command, meaning that it will freeze your terminal. It's highly recommended you run this command in another bash terminal. 
 
+CREATE VIDEO HERE
 ```
 kubectl port-forward service/raycluster-austoscaler-head-svc 8265:8265
 ```
