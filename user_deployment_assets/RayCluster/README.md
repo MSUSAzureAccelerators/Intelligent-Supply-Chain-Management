@@ -31,16 +31,33 @@ For more general information and other deployment scenarios, please visit this [
 
 Here's a list of software and code repository you will need to have installed on your local machine. 
 
-1) *Kubectl v4.5.4 or above* [kubectl](https://kubernetes.io/docs/tasks/tools/).
+1) **Kubectl v4.5.4 or above** [kubectl homepage](https://kubernetes.io/docs/tasks/tools/).
 
 > Installation Videos:
 > - [Windows 10 Guide](https://www.youtube.com/watch?v=G9MmLUsBd3g)
 > - [Mac OS Guide](https://www.youtube.com/watch?v=fXE1Gu71XNM)
 
 
-- [Docker Desktop](https://docs.docker.com/desktop/)
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-- [Python - v3.10.9](https://www.python.org/downloads/)
+2) **Docker Desktop** [Docker Desktop homepage](https://docs.docker.com/desktop/)
+
+> Installation Videos:
+> - [Windows 10 and 11 Guide]([https://www.youtube.com/watch?v=G9MmLUsBd3g](https://www.youtube.com/watch?v=AneS8ulQeKE))
+> - [Mac OS Guide]([https://www.youtube.com/watch?v=fXE1Gu71XNM](https://www.youtube.com/watch?v=SGmFGYCuJK4))
+
+
+3) **Azure CLI** [Docker Desktop homepage](https://docs.docker.com/desktop/)
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+
+> Installation Videos:
+> - [Windows 11 Guide](https://www.youtube.com/watch?v=y8UX3XsXh_Q)
+> - [Mac OS Guide](https://www.youtube.com/watch?v=6zGXCqq7jh0)
+
+
+4) **Python v3.10.9** [Python homepage](https://www.python.org/downloads/)
+
+> Installation Videos:
+> - [Windows 11 Guide](https://www.youtube.com/watch?v=sSzanMUE6hU)
+> - [Mac OS Guide](https://www.youtube.com/watch?v=r6bBaj797t8)
 
 
 --- 
