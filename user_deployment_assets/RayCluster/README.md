@@ -35,7 +35,7 @@ Here's a list of software and code repository you will need to have installed on
 
 > Installation Videos:
 > - [Windows 10 Guide](https://www.youtube.com/watch?v=G9MmLUsBd3g)
-> - [Mac OS Guide]([https://www.youtube.com/watch?v=G9MmLUsBd3g](https://www.youtube.com/watch?v=fXE1Gu71XNM)
+> - [Mac OS Guide](https://www.youtube.com/watch?v=fXE1Gu71XNM)
 
 
 - [Docker Desktop](https://docs.docker.com/desktop/)
