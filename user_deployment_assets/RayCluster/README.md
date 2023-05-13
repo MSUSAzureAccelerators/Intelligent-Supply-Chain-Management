@@ -166,7 +166,7 @@ RUN pip3 install ray[default] gluonts torch mxnet orjson
 
 ```
 
-In order to build your dockerfile image, open a bash terminal, and navigate to the folder where you cloned this repository. 
+In order to build your dockerfile image, you will need to use your DOS or a bash terminal, and navigate to the folder where you cloned this repository. 
 The command you will have to launch will be as below:
 
 ```bash
@@ -179,6 +179,10 @@ $docker build <path-to-dockerfile>
 # rebuild images everytime you make changes in the dockerfile
 ```
 You can specify a tag, it's up to you.
+
+Here's a tutorial on how to build a Dockerfile on a Windows terminal and how you can push it to your Dockerhub account. 
+
+> [Build and Push Docker image](https://www.youtube.com/watch?v=4iWwZPvIZhk)
 
 ### 3.1 Push your image to DockerHub
 The next step will be pushing the image you just built to your Dockerhub address. The image will be pulled during the configuration of the RayCluster, so that's why it has to be publicly available. 
