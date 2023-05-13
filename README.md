@@ -50,7 +50,7 @@ For additional training and support, please see:
 
 ## Deploy the Solution Accelerator to Azure
 
-Follow this [link](Deploy.md) to deploy the Azure Resources to your Azure subscription.
+Go to the [Deployment Guide](Deploy.md) to deploy the Azure Resources to your Azure subscription.
 
 
 ------
