@@ -18,6 +18,10 @@ Both options will help you deploying the following resources:
 There was an error downloading the template from URI 'https://raw.githubusercontent.com/msmarti/sa-opti-temp/main/deployment/azuredeploy.json'. Ensure that the template is publicly accessible and that the publisher has enabled CORS policy on the endpoint. To deploy this template, download the template manually and paste the contents in the 'Build your own template in the editor' option below. 
 
 
+## GG
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fgallogiulia%2FMSUS_SC_Accelerator%2Fmain%2Fdeployment%2Fazuredeploy.json)
+
+
 ### AML workspace
 
 The files included in this project are an adaptation of [azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure)
