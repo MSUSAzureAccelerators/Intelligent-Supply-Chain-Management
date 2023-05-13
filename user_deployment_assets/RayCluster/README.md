@@ -45,8 +45,7 @@ Here's a list of software and code repository you will need to have installed on
 > - [Mac OS Guide](https://www.youtube.com/watch?v=SGmFGYCuJK4&t=37s)
 
 
-3) **Azure CLI** [Docker Desktop homepage](https://docs.docker.com/desktop/)
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+3) **Azure CLI** [Azure CLI Homepage](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 > Installation Videos:
 > - [Windows 11 Guide](https://www.youtube.com/watch?v=y8UX3XsXh_Q)
