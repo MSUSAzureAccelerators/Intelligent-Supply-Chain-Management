@@ -13,11 +13,6 @@ Both options will help you deploying the following resources:
 ## Deploy the architecture through Azure Portal by using pre-configured Azure Deployment
 
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmsmarti%2Fsa-opti-temp%2Fmain%2Fdeployment%2Fazuredeploy.json%3Ftoken%3DGHSAT0AAAAAACCPMZLSSKNXGGNOJC2HFARIZC66DIQ)
-
-There was an error downloading the template from URI 'https://raw.githubusercontent.com/msmarti/sa-opti-temp/main/deployment/azuredeploy.json'. Ensure that the template is publicly accessible and that the publisher has enabled CORS policy on the endpoint. To deploy this template, download the template manually and paste the contents in the 'Build your own template in the editor' option below. 
-
-
 ## GG
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fgallogiulia%2FMSUS_SC_Accelerator%2Fmain%2Fdeployment%2Fazuredeploy.json)
 
@@ -30,14 +25,6 @@ This screenshot below shows you the resources that will be deployed by the Azure
 
 ![](assets/images/azure-deployment.png)
 
-
-
-Once the deployment has been completed, save the following information somewhere accessible to you for the later steps of the deployment.
-
-1) AML WORKSPACE NAME
-2) SUBSC
-3) TENANT
-4) 
 
 ### Next Steps: Configure the Azure Resources deployed by the Bicep Template in your Subscription
 
