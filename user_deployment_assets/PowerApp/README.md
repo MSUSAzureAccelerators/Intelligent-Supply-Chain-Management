@@ -1,4 +1,10 @@
 ## Step 10. Deploy and configure the Supply Chain Power App
+
+In this guide, you will install and deploy the Supply Chain Power App developed for this Solution Accelerator. 
+
+> Check this [YouTube tutorial](https://www.youtube.com/watch?v=QYZEmCedSr8) to see steps to deploy a generic Power App, and repeat the steps using the canvas App in this folder.
+
+
 1. Go to https://make.preview.powerapps.com/
 2. In the right upper corner, make sure you select the correct environment where you want to deploy the Power App.
 3. Click on `Apps - Import Canvas App`
