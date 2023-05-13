@@ -59,9 +59,8 @@ Full details for the tables are provided here.
 | ----------- | ------------ | ----------|
 | sc_results_table_full | id int IDENTITY(1,1) | PRIMARY KEY|
 || Item | varchar(255)|
-|                | Class | varchar(255)|
-|               
-|                | Location |  varchar(255)|
+|| Class | varchar(255)|
+|| Location |  varchar(255)|
 || Inventory_Level | float|
 ||    Replenish_Index |float|
 ||    Backlog_Level |float|
