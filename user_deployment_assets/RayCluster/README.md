@@ -252,7 +252,7 @@ Sometimes called an _application password_, a client secret is a string value yo
 
 In this YouTube tutorial, you can see how to create a client secret in the App you just created in the step above. You will need to create *two* secrets, one for Azure KeyVault and one for your Azure Kubernetes Instance. 
 
-> Check the YouTube tutorial [here].(https://www.youtube.com/watch?v=y-iaOb0K14c)
+> Check the YouTube tutorial [here](https://www.youtube.com/watch?v=y-iaOb0K14c)
 
 Here's the instructions step by step, in case the video didn't work.
 
