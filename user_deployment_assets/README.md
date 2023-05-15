@@ -20,9 +20,9 @@ Follow the steps [here](RayCluster/README.md).
 
 In this guide, you will perform the following operations:
 
-- 1 import the Azure SQL database with pre-existing tables to your Azure SQL server instance.
-- 2 create secrets for the sql admin username, password, the server name and the IP address
-- 3 allow the server's firewall to grant access to your local machine's IP
+- import the Azure SQL database with pre-existing tables to your Azure SQL server instance.
+- create secrets for the sql admin username, password, the server name and the IP address
+- allow the server's firewall to grant access to your local machine's IP
 
 Follow the steps [here](SQL/README.md).
 
@@ -31,8 +31,8 @@ Follow the steps [here](SQL/README.md).
 
 In this guide, you will run two jupyter notebooks on your Azure Compute Instance in sequence:
 
-- 1 you will register a conda virtual environment to deploy an AML pod to your AKS instance
-- 2 you will deploy the score file to your AKS instance
+- you will register a conda virtual environment to deploy an AML pod to your AKS instance
+- you will deploy the score file to your AKS instance
 
 Follow the steps [here](AML/README.md).
 
