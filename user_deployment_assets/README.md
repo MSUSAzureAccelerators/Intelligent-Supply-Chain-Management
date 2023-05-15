@@ -16,6 +16,17 @@ A summary of what will happen during this step is below:
 Follow the steps [here](RayCluster/README.md).
 
 
+# Step: Azure SQL Database
+
+In this guide, you will perform the following operations:
+
+- 1 import the Azure SQL database with pre-existing tables to your Azure SQL server instance.
+- 2 create secrets for the sql admin username, password, the server name and the IP address
+- 3 allow the server's firewall to grant access to your local machine's IP
+
+Follow the steps [here](SQL/README.md).
+
+
 # Step: AML Studio Configuration
 
 In this guide, you will run two jupyter notebooks on your Azure Compute Instance in sequence:
