@@ -6,6 +6,7 @@ In this guide, you will perform the following actions:
 2) Connect to your AKS instance from Azure Machine Learning studio.
 3) Deploy the simulation code file (score.py) on a Kubernetes pod, running the conda environment created on step 1. 
 
+> **Note** Now is the time to upload the copy of this github repository on your AML workspace. 
 
 ## Step 1: Create a Conda virtual environment
 
