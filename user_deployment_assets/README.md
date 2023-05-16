@@ -58,7 +58,7 @@ A summary of what will happen during this step is below:
 - create a connection between Power Apps and your KubeRay Operator on the AKS configured at Step 2
 - visualize the Power Apps deployment from your browser and test running simulations
  
-Follow the steps [here](PowerApp/PowerAppsDeployment.md).
+Follow the steps [here](PowerApp/README.md).
 
 
 # Bonus Content
