@@ -21,7 +21,6 @@ Follow the steps [here](RayCluster/README.md).
 In this guide, you will perform the following operations:
 
 - import the Azure SQL database with pre-existing tables to your Azure SQL server instance.
-- create secrets for the sql admin username, password, the server name and the IP address
 - allow the server's firewall to grant access to your local machine's IP
 
 Follow the steps [here](SQL/README.md).
