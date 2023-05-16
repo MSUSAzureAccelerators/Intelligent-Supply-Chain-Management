@@ -13,6 +13,9 @@ Clusters can be a set size or they can change in size depending on how much work
 
 ## Installing Ray on your Azure Kubernetes instance
 
+> **Note**
+> Estimated time to complete the steps ~ 2 hours
+
 In this deployment guide, we will follow some of the instructions and details you can find on the official Ray documentation. 
 
 > **Warning**
