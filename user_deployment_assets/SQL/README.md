@@ -11,7 +11,7 @@ Select the SQL bacpac file here, and upload it to a new container in your Azure 
 
 ### Import the supplychain SQL database to your Azure SQL db
 
-Select the SQL bacpac file here, and using Microsoft SQL Server Management Studio (SSMS) or any other tool of your choice, import the file into your Azure SQL server.
+Select the SQL bacpac file [here](supchaindb.bacpac), and using Microsoft SQL Server Management Studio (SSMS) or any other tool of your choice, import the file into your Azure SQL server.
 For a video guide, follow the steps in this video, on how to create a new SQL database using a bacpac file. 
 
 > [Guide + video](https://learn.microsoft.com/en-us/azure/azure-sql/database/database-import?view=azuresql&tabs=azure-powershell)
