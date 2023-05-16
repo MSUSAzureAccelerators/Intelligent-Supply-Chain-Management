@@ -1,5 +1,8 @@
 # Azure Machine Learning Configuration Guide
 
+> **Note**
+> Estimated time to complete the steps ~ 40 minutes
+
 In this guide, you will perform the following actions:
 
 1) Create a _conda_ virtual environment called *supplychainray377* and register it into Azure Machine Learning.
