@@ -1,5 +1,8 @@
 ## Step 10. Deploy and configure the Supply Chain Power App
 
+> **Note**
+> Estimated time to complete the steps ~ 10 minutes
+
 In this guide, you will install and deploy the Supply Chain Power App developed for this Solution Accelerator. We assume you have a Power App license. You will also need access to a Premium license for creating SQL connections.
 
 ### 10.1 Create an Azure SQL connection in your Power Apps envrironment, to connect to your Azure SQL database.    
