@@ -1,5 +1,8 @@
 ## Azure SQL Deployment Guide
 
+> **Note**
+> Estimated time to complete the steps ~ 10 minutes
+
 In this guide, you will perform the following actions:
 
 - import the Azure SQL database file to your Server 
