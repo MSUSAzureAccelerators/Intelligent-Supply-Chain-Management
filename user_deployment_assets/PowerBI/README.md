@@ -5,10 +5,10 @@
 
 First off, if you don't have it, go download Power BI Desktop [here](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
-Next, open the Power BI report in this repository using your PowerBI account. Click on File, Embed Report, and select the option "". In the  
+Next, open the Power BI report in this repository using your PowerBI account. Click on File, Embed Report, and select the option "website or portal". 
 
 ![](../../assets/images/ShareReport.png)
 
-Save the URL for your Power BI report because you will need it with your Power Apps.
+Save the first link that appears for your Power BI report because you will need it with your Power Apps next.
 
 
