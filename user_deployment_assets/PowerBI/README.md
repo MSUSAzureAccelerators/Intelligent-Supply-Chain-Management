@@ -5,13 +5,10 @@
 
 First off, if you don't have it, go download Power BI Desktop [here](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
-Next, open the Power BI report in this repository using your PowerBI account. 
+Next, open the Power BI report in this repository using your PowerBI account. Click on File, Embed Report, and select the option "". In the  
 
-![Image](/../../assets/images/ShareReport.png)
+![](../../assets/images/ShareReport.png)
 
-
-
-
-Export the Report into a Dashboard and share it/publish it so you can access it from Power Apps. Save the URL for your Power BI Dashboard.
+Save the URL for your Power BI report because you will need it with your Power Apps.
 
 
