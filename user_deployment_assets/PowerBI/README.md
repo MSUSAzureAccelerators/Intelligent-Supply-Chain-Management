@@ -7,7 +7,7 @@ First off, if you don't have it, go download Power BI Desktop [here](https://www
 
 Next, open the Power BI report in this repository using your PowerBI account. 
 
-![](/../assets/ShareReport.pnb)
+![](/../../assets/ShareReport.png)
 
 
 
