@@ -30,21 +30,15 @@ np.random.seed(0)
 def get_ws():
 
 
-    subscription_id = '6a89c234-644a-42a1-a06b-433ce3030bb9'
-    resource_group = 'MSUS_SA_SupplyChain'
-    workspace_name = 'mlw-sa-httv3'
+    subscription_id = 'YOUR_AZURE_SUBSCRIPTION'
+    resource_group = 'YOUR_RESOURCE_GROUP'
+    workspace_name = 'YOUR_AML_WORKSPACE'
 
-    tenant_id ='16b3c013-d300-468d-ac64-7eda0820b6d3'
+    tenant_id ='YOUR_TENANT_ID'
 
-    svc_pr_id = '65ca2d1a-85d3-4055-815e-5352e5770728' # client ID
-    svc_pr_password = 'KCq8Q~uVs6miz-P~jpz0m1r3I9SZt0cxIg7KLc8a' # secret ID 
+    svc_pr_id = 'CLIENT_ID_FOR_APP_REGISTRATION' # client ID
+    svc_pr_password = 'SECRET_ID_FOR_APP_REGISTRATION' # secret ID 
     
-
-    print("Client ID: ",svc_pr_id)
-    print("")
-    print("Client Password: ",svc_pr_password)
-
-
 
     svc_pr = ServicePrincipalAuthentication(
         tenant_id=tenant_id,
@@ -474,35 +468,11 @@ def run_optimization(demand, sim_duration, invCap, maxQ,orderCost,holdCost,leadT
 
     return inv_list, reorder_list, replenish_list, back_list, q_list,r_list,model.cost()
 
-  
+
 def init():
+    ## This function starts the Ray Cluster Head/Worker nodes ##
     
-    global sales_data, predictor, training_dataset, rayclusterip
-
-
-    rayclusterip="10.0.237.243"
-
-    training_dataset = 'training_sales_data_2'
-
-    ws = get_ws()
-    dataset = Dataset.get_by_name(ws, name='training_sales_data_2', version='latest')
-    sales_data = dataset.to_pandas_dataframe() 
-
-    
-    print("##### Loaded sales data #####")
-    
-
-    absolute_path = os.path.dirname('2.AKS_Deployment_Notebook.ipynb')
-    relative_path = "downloads/supply-chain-forecast-model/"
-    full_path = os.path.join(absolute_path, relative_path)
-    
-    #predictor = pickle.load(open(full_path+'predictor.pkl', 'rb'))
-
-    predictor = pickle.load(open(os.getcwd()+'/source/downloads/supply-chain-forecast-model/predictor.pkl', 'rb'))
-  
-    
-
-
+    rayclusterip="YOUR_RAY_CLUSTER_IP"
     if ray.is_initialized() == False:
         print("Ray is not up!! We are starting it up right with the correct address")
         ray.init(address="ray://" + rayclusterip + ":10001")  ############################### DO this for deployment (head ip)
@@ -514,8 +484,8 @@ def init():
         ray.init(address="ray://"+ rayclusterip + ":10001") ############################### DO this for deployment (head ip)
 
 def optimization(forecasts,ensemble,subset_params,sim_duration,input_location):
-    
-    
+    ## This function starts the inventory optimization simulation and distributes it to the Ray Workers ##
+ 
     items = []
     item_class=[]
     items_location =[]
@@ -534,19 +504,16 @@ def optimization(forecasts,ensemble,subset_params,sim_duration,input_location):
         R_results = []
         cost_results =[]
 
-        #TODO : CHECK THIS with Giulia why this is static versus for i in range(0,len(ensemble)):
+       
         for i in range(0,1): 
             samples = ensemble[i]
-            #demand_forecast = forecasts[i].samples.mean(axis=0) * samples["scale"]
-            demand_forecast = forecasts[i].samples.mean(axis=0) * 100 ##TODO: check the scale factor so that it's reasonable based on the MIP model formulation/values
-            
+          
+            demand_forecast = forecasts[i].samples.mean(axis=0) * 100 
             rounded = [np.round(x) for x in demand_forecast]
             demand = {k:rounded[k] for k in range(1, sim_duration)}
 
             inventory_levels,reorder_levels, replenish_level, backlog_levels, Q,R, optimal_cost = run_optimization.remote(demand, sim_duration,param['Inventory_Capacity'],
             param['Max_Quantity'],param['Holding_Cost'],param['Order_Cost'],param['Lead_Time'],param['Backlog_Cost'],param['Max_Backlogged'],param['Initial_Inventory'])
-
-
 
             inventory_results.append(inventory_levels)
             reorder_results.append(reorder_levels)
@@ -556,9 +523,6 @@ def optimization(forecasts,ensemble,subset_params,sim_duration,input_location):
             Q_results.append(Q)
             cost_results.append(optimal_cost)  
 
-
-        
-        
         run_time = datetime.now()
         result_dict_parameters_ = {'Item':param['item'],'Class':param['class'], 'Location': input_location, 
                        'Q':ray.get(Q_results), 'R':ray.get(R_results),  'Optimal_Cost': ray.get(cost_results), 'timestamp':run_time}                       
@@ -573,7 +537,7 @@ def optimization(forecasts,ensemble,subset_params,sim_duration,input_location):
                     'Backlog_Level':ray.get(backlog_results),
                    'Reorder_Index':ray.get(reorder_results),'timestamp':run_time}                  
         results_int_df = pd.DataFrame.from_dict(result_dict_interval_)
-        #TODO
+     
         saved_results_with_intervals_df = save_res_interval(results_int_df,param,input_location)
         result_df_interval.append(saved_results_with_intervals_df)
 
@@ -583,12 +547,9 @@ def optimization(forecasts,ensemble,subset_params,sim_duration,input_location):
    
     result_df_full= result_df_interval_pd.merge(result_df_parameters_pd, on=['Item','Class','Location','timestamp'])
 
-    # COMMENT THIS LINE IF YOU WANT TO RUN LOCAL
-    #persist_results.remote(result_df_full,demand_pd,result_df_interval,result_df_parameters)
     demand_table_pd = pd.Series(demand).to_frame('Demand')
 
     persist_results(result_df_full,demand_table_pd,result_df_parameters)
-    
     
     print("               ")
     print("The simulation is over")
@@ -603,7 +564,15 @@ def run(Inputs):
 
     samples = 20
     sim_duration = 21
+    
+    training_dataset = 'training_sales_data_2'
 
+    ws = get_ws()
+    dataset = Dataset.get_by_name(ws, name='training_sales_data_2', version='latest')
+    sales_data = dataset.to_pandas_dataframe() 
+
+    print("##### Loaded sales data #####")
+    
     sales_data_loc = sales_data[sales_data['Location']== input_location]
     sub_sales_data,item_to_class,subset_params = subset_sales_data(sales_data_loc,params)
     print("    ")
@@ -611,6 +580,7 @@ def run(Inputs):
     print("    ")
     print(item_to_class)
 
+    # Create the demand forecast scenarios using the DeepAR framework
     predictor = pickle.load(open(os.getcwd()+'/source/downloads/supply-chain-forecast-model/predictor.pkl', 'rb'))
     ensemble,test_ds = create_ensemble_test_ds(sub_sales_data,item_to_class)
     forecasts = generate_forecasts(test_ds, predictor, num_samples=samples)
@@ -621,10 +591,10 @@ def run(Inputs):
     try:
         result = optimization(forecasts,ensemble,subset_params,sim_duration,input_location)
         response = json.dumps(result, indent=4, sort_keys=False, default=str)
-        return "Optimization done! \nResult: \n\n" + response
+        return "The Inventory optimization simulation is done! \nResult: \n\n" + response
     except Exception as err:
         print(err)
-        return "Error occurred in optimization"
+        return "An error occurred in optimization. Check the log for more info on the error."
     else:
         print("Nothing wrong in optimization")
 
