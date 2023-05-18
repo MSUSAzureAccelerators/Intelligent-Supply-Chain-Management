@@ -276,7 +276,6 @@ For application security recommendations, see [Microsoft identity platform best 
 
 ## Phase 5: Deploy the KubeRay operator on your AKS instance from your local machine
 
-CREATE VIDEO FOR THIS PHASE
 
 After deploying the necessary Azure resources, the next step is to install the KubeRay operator and the Ray Cluster on your Azure Kubernetes instance. This guide will show you how to install Ray on AKS, starting from your own local machine (laptop, desktop pc, etc.) and which tools you'll need to do so.
 
