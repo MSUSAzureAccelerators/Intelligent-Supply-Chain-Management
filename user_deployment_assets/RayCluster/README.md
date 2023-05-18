@@ -306,7 +306,7 @@ Finally, the last step you need to take is to install the KubeRay Operator on yo
 
 
 > **Note**
-> We will be following the *Getting Started* guide referenced below from the Ray documentation, so if you are interested in learning more details about Ray and Kubernetes, please go to this [link](https://> docs.ray.io/en/latest/cluster/kubernetes/index.html).
+> We will be following the *Getting Started* guide referenced below from the Ray documentation, so if you are interested in learning more details about Ray and Kubernetes, please go to this ![link](https://> docs.ray.io/en/latest/cluster/kubernetes/index.html).
 
 
 ### 5.1 Access your Azure Kubernetes instance
