@@ -46,7 +46,7 @@ A summary of what will happen during this step is below:
 - create necessary connections to your Azure SQL database
 - visualize the PowerBI dashboard on your PowerBI desktop application on the web.
 
-Follow the steps [here](PowerBI/PowerBI.md).
+Follow the steps [here](PowerBI/README.md).
 
 # Step: Power Apps Configuration
 
