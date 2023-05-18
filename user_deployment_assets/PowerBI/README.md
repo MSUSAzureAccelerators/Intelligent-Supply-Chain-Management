@@ -5,7 +5,10 @@
 
 First off, if you don't have it, go download Power BI Desktop [here](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
-Next, open the Power BI report in this repository using your PowerBI account. Click on File, Embed Report, and select the option "website or portal". 
+1) Download the pbix file [here](SA_SupplyChain_PBIX_V2.pbix
+2) Upload it to the PBI workspace
+2) Click on File, Embed Report, and select the option "website or portal".
+
 
 ![](../../assets/images/ShareReport.png)
 
