@@ -25,7 +25,6 @@ For more general information and other deployment scenarios, please visit this [
 
 ### Installation Phases
 
-![image](https://github.com/gallogiulia/Supply-Chain-Management/assets/21693360/88d796ed-bfd7-4642-affe-b3807cdaa81f)
 
 
 ---
