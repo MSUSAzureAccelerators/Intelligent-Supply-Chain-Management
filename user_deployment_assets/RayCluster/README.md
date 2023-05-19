@@ -51,6 +51,15 @@ _kubectl_ is installable on a variety of Linux platforms, macOS and Windows. Fin
 
 2) **Docker Desktop** [Docker Desktop homepage](https://docs.docker.com/desktop/)
 
+Docker Desktop is a one-click-install application for your Mac, Linux, or Windows environment that enables you to build and share containerized applications and microservices.
+
+It provides a straightforward GUI (Graphical User Interface) that lets you manage your containers, applications, and images directly from your machine. Docker Desktop can be used either on it’s own or as a complementary tool to the CLI.
+
+_Docker Desktop_ is installable on a variety of Linux platforms, macOS and Windows. Find your preferred operating system below.
+-[Install Docker Desktop on Linux](https://docs.docker.com/desktop/install/linux-install/)
+-[Install Docker Desktop on macOS](https://docs.docker.com/desktop/install/mac-install/)
+-[Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/) 
+
 > Installation Videos:
 > - [Windows Guide](https://www.youtube.com/watch?v=5nX8U8Fz5S0)
 > - [Mac OS Guide](https://www.youtube.com/watch?v=SGmFGYCuJK4&t=37s)
