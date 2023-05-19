@@ -35,7 +35,16 @@ Here's a list of software and code repository you will need to have installed on
 
 1) **Kubectl v4.5.4 or above** [kubectl homepage](https://kubernetes.io/docs/tasks/tools/).
 
-> Installation Videos:
+#### kubectl
+The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the kubectl reference documentation.
+
+_kubectl_ is installable on a variety of Linux platforms, macOS and Windows. Find your preferred operating system below.
+
+-[Install kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+-[Install kubectl on macOS](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+-[Install kubectl on Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/) 
+
+> Here are also some installation Videos:
 > - [Windows Guide](https://www.youtube.com/watch?v=G9MmLUsBd3g)
 > - [Mac OS Guide](https://www.youtube.com/watch?v=fXE1Gu71XNM)
 
