@@ -37,7 +37,6 @@ Here's a list of software and code repository you will need to have installed on
 
 ![](../../assets/images/kubectl.png)
 
-#### kubectl
 The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the kubectl reference documentation.
 
 _kubectl_ is installable on a variety of Linux platforms, macOS and Windows. Find your preferred operating system below.
