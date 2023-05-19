@@ -35,6 +35,8 @@ Here's a list of software and code repository you will need to have installed on
 
 1) **Kubectl v4.5.4 or above** [kubectl homepage](https://kubernetes.io/docs/tasks/tools/).
 
+![](../../assets/images/kubectl.png)
+
 #### kubectl
 The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the kubectl reference documentation.
 
@@ -50,6 +52,8 @@ _kubectl_ is installable on a variety of Linux platforms, macOS and Windows. Fin
 
 
 2) **Docker Desktop** [Docker Desktop homepage](https://docs.docker.com/desktop/)
+
+![](../../assets/images/Docker.png)
 
 Docker Desktop is a one-click-install application for your Mac, Linux, or Windows environment that enables you to build and share containerized applications and microservices.
 
@@ -67,6 +71,12 @@ _Docker Desktop_ is installable on a variety of Linux platforms, macOS and Windo
 
 3) **Azure CLI** [Azure CLI Homepage](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
+![](../../assets/images/AzureCLI.png)
+
+The Azure command-line interface (Azure CLI) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation.
+
+Find the latest installation guides for your preferred operating system on the official [Microsoft Azure CLI installation page](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+
 > Installation Videos:
 > - [Windows Guide](https://www.youtube.com/watch?v=y8UX3XsXh_Q)
 > - [Mac OS Guide](https://www.youtube.com/watch?v=6zGXCqq7jh0)
@@ -74,6 +84,19 @@ _Docker Desktop_ is installable on a variety of Linux platforms, macOS and Windo
 
 4) **Python v3.10.9** [Python homepage](https://www.python.org/downloads/)
 
+
+![](../../assets/images/Python.png)
+
+Python is a programming language that lets you work more quickly and integrate your systems more effectively.
+_Python_ is open-source and can be installed on a huge variety of platforms. Find your preferred operating system below.
+
+-[Install Python on macOS](https://www.python.org/downloads/macos/)
+-[Install Python on Windows](https://www.python.org/downloads/windows/) 
+
+
+
+-[Install Python on macOS](https://www.python.org/downloads/macos/)
+-[Install Python on Windows](https://www.python.org/downloads/windows/) 
 
 > Installation Videos:
 > - [Windows Guide](https://www.youtube.com/watch?v=sSzanMUE6hU)
