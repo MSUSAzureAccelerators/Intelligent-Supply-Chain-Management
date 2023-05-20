@@ -3,7 +3,7 @@
 > **Note**
 > Estimated time to complete the steps is between 12 and 15 minutes. The longest phase is the Deployment to Azure.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fgallogiulia%2FMSUS_SC_Accelerator%2Fmain%2Fdeployment%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMSUSAzureAccelerators%2FIntelligent-Supply-Chain-Management%2Fmain%2Fdeployment%2Fazuredeploy.json)
 
 
 >  **Note**
