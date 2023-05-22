@@ -748,7 +748,7 @@
                           "osType": "Linux",
                           "scaleSettings": {
                             "minNodeCount": 0,
-                            "maxNodeCount": 5,
+                            "maxNodeCount": 1,
                             "nodeIdleTimeBeforeScaleDown": "PT120S"
                           }
                         }
