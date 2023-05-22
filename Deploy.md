@@ -1,5 +1,8 @@
 ## Deploy the architecture through Azure Portal by using pre-configured Azure Deployment
 
+> **Warning**
+> This template also deploys an Azure Compute Instance with a default size (Standard_F8s_v2), a region (East US) and node count (min 0, max 5) inside the Azure Machine Learning Workspace. Make sure that your Subscription and the quotas allow for this type of compute. If not, you will have to click on "Edit Template" and "Edit Parameters", prior to submitting the deployment. 
+
 > **Note**
 > Estimated time to complete the steps is between 12 and 15 minutes. The longest phase is the Deployment to Azure.
 
