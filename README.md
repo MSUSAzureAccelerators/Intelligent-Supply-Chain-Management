@@ -8,6 +8,8 @@ The Supply Chain Management Solution Accelerator helps inventory managers to ana
 
 By leveraging the capabilities of the Supply Chain Management Solution Accelerator, businesses and supply chain managers can overcome these challenges and drive operational excellence, improved customer satisfaction, and increased profitability.
 
+For more information about potential customer scenarios and architecture references, please see the [customer pitch deck](WIP) and the [AAC article](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/analytics/optimize-inventory-forecast-demand) . 
+
 # Challenges
 
 Many businesses face significant challenges when their supply chain management systems do not leverage data science and machine learning. These challenges include:
@@ -33,6 +35,30 @@ The Supply Chain Management Solution Accelerator is a powerful tool that address
 - Optimize supplier selection and performance management.
 - Improve overall supply chain visibility and responsiveness.
 
+# Solution Overview
+
+![image](https://user-images.githubusercontent.com/21693360/236896617-57b9c503-9ac7-4ecf-9862-cb3728f222c2.png)
+
+The Intelligent Supply Chain Management Accelerator is practical, scalable, and manageable—and built on Azure Machine Learning and the Microsoft Power Platform. The data flow is as follows:
+
+- Azure Data Factory ingests related data into Azure Data Lake Storage. The sources of this data can be enterprise resource planning (ERP) systems, SAP, and Azure SQL. Additional sources might include weather and economic data.
+- Data Lake Storage stores raw data for further processing.
+- Mapping data flows in Azure Data Factory produces curated data and stores it in a relational format in an Azure SQL database. Additionally, in this use case, the SQL database stores intermediate results, other run information, and simulation metrics. Alternatively, Azure Machine Learning can read the data directly from the Data Lake service.
+- Use Azure Machine Learning to train the model by using data in Azure SQL Database and deploy the model and service to Kubernetes.
+- Install the Ray framework on the same Kubernetes cluster to parallelize the execution of the scoring script during inferencing. Each execution runs the demand-forecasting module for specified locations and products over a given forecast period. The forecasting results are read by the optimization module, which calculates the optimal inventory levels. Finally, the results are stored in Azure SQL Database.
+- Power Apps hosts a user interface for business users and analysts to collect parametric information, such as service level, product, and location. Users also use Power Apps to submit the collected parameters and to launch executions of the deployed machine learning module that is hosted in Kubernetes clusters.
+- Power BI ingests data from Azure SQL Database and allows users to analyze results and perform sensitive analysis. All Power BI dashboards are integrated into Power Apps to have a unified UI for calling the API, reading results, and performing downstream analysis.
+
+## Reference Architecture
+![image](https://user-images.githubusercontent.com/21693360/236896617-57b9c503-9ac7-4ecf-9862-cb3728f222c2.png)
+
+
+## Dashboard Examples
+
+Power Apps
+
+
+Power BI
 
 
 ## Prerequisites
