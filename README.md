@@ -37,7 +37,7 @@ The Supply Chain Management Solution Accelerator is a powerful tool that address
 
 # Solution Overview
 
-![image](https://user-images.githubusercontent.com/21693360/236896617-57b9c503-9ac7-4ecf-9862-cb3728f222c2.png)
+![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/a123b155f0c6123778fd1f8aee800298cebd4254/assets/images/Picture2.png)
 
 The Intelligent Supply Chain Management Accelerator is practical, scalable, and manageable—and built on Azure Machine Learning and the Microsoft Power Platform. The data flow is as follows:
 
@@ -50,16 +50,13 @@ The Intelligent Supply Chain Management Accelerator is practical, scalable, and 
 - Power BI ingests data from Azure SQL Database and allows users to analyze results and perform sensitive analysis. All Power BI dashboards are integrated into Power Apps to have a unified UI for calling the API, reading results, and performing downstream analysis.
 
 ## Reference Architecture
-![image](https://user-images.githubusercontent.com/21693360/236896617-57b9c503-9ac7-4ecf-9862-cb3728f222c2.png)
-
+![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/07eeee94574e0a10045b6c8bb96088338a519bf7/assets/images/Picture1.png)
 
 ## Dashboard Examples
-
 Power Apps
-
-
+![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/07eeee94574e0a10045b6c8bb96088338a519bf7/assets/images/Picture3.png)
 Power BI
-
+![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/07eeee94574e0a10045b6c8bb96088338a519bf7/assets/images/Picture4.png)
 
 ## Prerequisites
 To use this solution accelerator, you will need access to an [Azure subscription](https://azure.microsoft.com/en-us/free/), a Power Apps and a Power BI license. While not required, a prior understanding of Azure Machine Learning, Azure Kubernetes, Azure SQL Database, Docker, Time Series Forecasting, Power Apps and Power BI will be helpful.
