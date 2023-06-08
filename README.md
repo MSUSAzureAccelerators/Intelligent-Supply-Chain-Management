@@ -1,12 +1,12 @@
 ![image](https://user-images.githubusercontent.com/21693360/236896617-57b9c503-9ac7-4ecf-9862-cb3728f222c2.png)
 
-# Supply Chain Management Solution Accelerator
+# Supply Chain Management Accelerator
 
 Created to provide a customer interface by using Power BI and PowerApps from which users can launch simulations and determine the parameters of the simulation and data, access results. 
 
-The Supply Chain Management Solution Accelerator helps inventory managers to analyze their products portfolio, inventory systems quickly and proactively, using a practical, scalable, and manageable solution.
+The Supply Chain Management Accelerator helps inventory managers to analyze their products portfolio, inventory systems quickly and proactively, using a practical, scalable, and manageable solution.
 
-By leveraging the capabilities of the Supply Chain Management Solution Accelerator, businesses and supply chain managers can overcome these challenges and drive operational excellence, improved customer satisfaction, and increased profitability.
+By leveraging the capabilities of the Supply Chain Management Accelerator, businesses and supply chain managers can overcome these challenges and drive operational excellence, improved customer satisfaction, and increased profitability.
 
 For more information about potential customer scenarios and architecture references, please see the [customer pitch deck](WIP) and the [AAC article](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/analytics/optimize-inventory-forecast-demand) . 
 
@@ -25,7 +25,7 @@ Many businesses face significant challenges when their supply chain management s
 
 # Benefits
 
-The Supply Chain Management Solution Accelerator is a powerful tool that addresses these challenges by utilizing machine learning, distributed computing, and deep learning forecasts to transform data. It leverages the capabilities of the Ray.io framework to enable users to:
+The Supply Chain Management Accelerator is a powerful tool that addresses these challenges by utilizing machine learning, distributed computing, and deep learning forecasts to transform data. It leverages the capabilities of the Ray.io framework to enable users to:
 
 - More accurately predict demand and optimize inventory management policies.
 - Run numerous distributed simulations to evaluate different scenarios and make informed decisions.
@@ -35,7 +35,7 @@ The Supply Chain Management Solution Accelerator is a powerful tool that address
 - Optimize supplier selection and performance management.
 - Improve overall supply chain visibility and responsiveness.
 
-# Solution Overview
+# Accelerator Solution Overview
 
 ![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/a123b155f0c6123778fd1f8aee800298cebd4254/assets/images/Picture2.png)
 
@@ -59,7 +59,7 @@ Power BI
 ![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/07eeee94574e0a10045b6c8bb96088338a519bf7/assets/images/Picture4.png)
 
 ## Prerequisites
-To use this solution accelerator, you will need access to an [Azure subscription](https://azure.microsoft.com/en-us/free/), a Power Apps and a Power BI license. While not required, a prior understanding of Azure Machine Learning, Azure Kubernetes, Azure SQL Database, Docker, Time Series Forecasting, Power Apps and Power BI will be helpful.
+To use this accelerator, you will need access to an [Azure subscription](https://azure.microsoft.com/en-us/free/), a Power Apps and a Power BI license. While not required, a prior understanding of Azure Machine Learning, Azure Kubernetes, Azure SQL Database, Docker, Time Series Forecasting, Power Apps and Power BI will be helpful.
 
 For additional training and support, please see:
 
@@ -71,7 +71,7 @@ For additional training and support, please see:
 - [Power BI](https://azure.microsoft.com/en-us/products/power-bi/)
  
 
-## Deploy the Solution Accelerator to Azure
+## Deploy the Accelerator to Azure
 
 Go to the [Deployment Guide](Deploy.md) to deploy the Azure Resources to your Azure subscription.
 
