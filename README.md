@@ -35,6 +35,11 @@ The Supply Chain Management Accelerator is a powerful tool that addresses these 
 - Optimize supplier selection and performance management.
 - Improve overall supply chain visibility and responsiveness.
 
+# Architecture
+
+![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/a123b155f0c6123778fd1f8aee800298cebd4254/assets/images/Picture2.png)
+
+
 # Accelerator Solution Overview
 
 ![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/a123b155f0c6123778fd1f8aee800298cebd4254/assets/images/Picture2.png)
