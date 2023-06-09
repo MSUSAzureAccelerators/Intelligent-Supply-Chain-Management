@@ -37,7 +37,7 @@ The Supply Chain Management Accelerator is a powerful tool that addresses these 
 
 # Architecture
 
-![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/Architecture.png)
+![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/1079efc685a07564e96059269f53b4231e52e7c1/assets/images/Architecture.png)
 
 
 # Accelerator Solution Overview
