@@ -4,6 +4,11 @@ Once you have deployed the Azure Resource Group and Azure resources in your subs
 
 ---
 
+
+# Overview of the Architecture and Components
+
+![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/1079efc685a07564e96059269f53b4231e52e7c1/assets/images/Architecture.png)
+
 # Step: AKS and Ray Configuration
 
 In this guide, you will install a few tools on your local machine to complete the installation and configuration of the SA. 
