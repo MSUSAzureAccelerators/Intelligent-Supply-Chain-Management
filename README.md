@@ -37,7 +37,7 @@ The Supply Chain Management Accelerator is a powerful tool that addresses these 
 
 # Architecture
 
-![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/1079efc685a07564e96059269f53b4231e52e7c1/assets/images/Architecture.png)
+![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/07eeee94574e0a10045b6c8bb96088338a519bf7/assets/images/Picture1.png)
 
 
 # Accelerator Solution Overview
@@ -53,9 +53,6 @@ The Intelligent Supply Chain Management Accelerator is practical, scalable, and 
 - Install the Ray framework on the same Kubernetes cluster to parallelize the execution of the scoring script during inferencing. Each execution runs the demand-forecasting module for specified locations and products over a given forecast period. The forecasting results are read by the optimization module, which calculates the optimal inventory levels. Finally, the results are stored in Azure SQL Database.
 - Power Apps hosts a user interface for business users and analysts to collect parametric information, such as service level, product, and location. Users also use Power Apps to submit the collected parameters and to launch executions of the deployed machine learning module that is hosted in Kubernetes clusters.
 - Power BI ingests data from Azure SQL Database and allows users to analyze results and perform sensitive analysis. All Power BI dashboards are integrated into Power Apps to have a unified UI for calling the API, reading results, and performing downstream analysis.
-
-## Reference Architecture
-![image](https://github.com/MSUSAzureAccelerators/Intelligent-Supply-Chain-Management/blob/07eeee94574e0a10045b6c8bb96088338a519bf7/assets/images/Picture1.png)
 
 ## Dashboard Examples
 Power Apps
